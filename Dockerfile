@@ -17,6 +17,8 @@ FROM alpine:3
 # https://github.com/boot2docker/boot2docker/issues/581
 RUN adduser -D -u 1000 mailhog
 
+RUN apk --no-cache add telnet curl
+
 COPY --from=builder /root/gocode/bin/MailHog /usr/local/bin/
 
 USER mailhog
